@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
-        /** * Configuration: Design System de Casi Agencia.
-         * Definición de paleta de colores y fuentes para consistencia de marca.
-         */
         tailwind.config = {
             theme: {
                 extend: {
@@ -34,17 +31,12 @@
     </script>
     
     <style>
-        /* UI Components: Estilos para tarjetas y efectos de profundidad */
         .brand-gradient { background: linear-gradient(135deg, #FF6F59 0%, #26A69A 100%); }
         .card-work { cursor: pointer; }
         .card-work:hover img { transform: scale(1.1); }
+        .overlay-work { background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%); }
         
-        /* High Contrast Overlay: Degradado reforzado para legibilidad de texto */
-        .overlay-work { 
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%); 
-        }
-        
-        /* Modal Animation: Transiciones suaves para el visor de imágenes */
+        /* Estilos del Modal Dividido */
         #modal { display: none; }
         #modal.active { display: flex; animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -52,9 +44,27 @@
 </head>
 <body class="bg-brand-cream text-gray-800 antialiased">
 
-    <div id="modal" class="fixed inset-0 z-[100] bg-black/95 items-center justify-center p-4" onclick="closeModal()">
-        <button class="absolute top-6 right-6 text-white text-4xl hover:text-brand-coral transition-colors" aria-label="Cerrar">&times;</button>
-        <img id="modal-img" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl border border-white/10" alt="Vista previa">
+    <div id="modal" class="fixed inset-0 z-[100] bg-black/95 items-center justify-center p-4 lg:p-10">
+        <button class="absolute top-4 right-4 text-white text-4xl z-[110] hover:text-brand-coral transition-colors" onclick="closeModal()">&times;</button>
+        
+        <div class="bg-white w-full max-w-5xl max-h-[90vh] rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl" onclick="event.stopPropagation()">
+            <div class="w-full md:w-2/3 bg-gray-100 flex items-center justify-center overflow-hidden">
+                <img id="modal-img" src="" class="w-full h-full object-contain" alt="Preview">
+            </div>
+            
+            <div class="w-full md:w-1/3 p-8 flex flex-col justify-center border-l border-gray-100">
+                <span id="modal-tag" class="text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-4 inline-block w-fit">TAG</span>
+                <h3 id="modal-title" class="text-brand-dark text-3xl font-extrabold mb-4 leading-tight">Título del Proyecto</h3>
+                <div class="w-12 h-1 bg-brand-teal mb-6 rounded-full"></div>
+                <p id="modal-desc" class="text-gray-600 text-lg leading-relaxed">Descripción detallada del trabajo realizado.</p>
+                
+                <div class="mt-10 p-4 bg-brand-cream rounded-2xl border border-brand-teal/10">
+                    <p class="text-xs font-bold text-brand-teal uppercase tracking-widest flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check"></i> Proyecto Finalizado
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-brand-teal/20 shadow-sm">
@@ -65,7 +75,7 @@
                     <span class="font-bold text-xs tracking-widest text-brand-teal uppercase block">Agencia</span>
                 </div>
             </a>
-            <a href="index.html" class="text-brand-dark hover:text-brand-coral font-semibold transition-colors flex items-center">
+            <a href="index.html" class="text-brand-dark hover:text-brand-coral font-semibold transition-colors">
                 <i class="fa-solid fa-arrow-left mr-2"></i> Volver al Inicio
             </a>
         </div>
@@ -79,100 +89,97 @@
     <main class="max-w-6xl mx-auto px-4 pb-12">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" onclick="openModal('COLABO/T1.jpeg')">
-                <img src="COLABO/T1.jpeg" alt="Branding" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" 
+                 onclick="openModal('COLABO/T1.jpeg', 'Branding', 'Identidad Visual Coherente', 'Desarrollo de estética unificada para feed, logrando una presencia de marca sólida y profesional.', 'bg-brand-coral')">
+                <img src="COLABO/T1.jpeg" alt="T1" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
                 <div class="overlay-work absolute inset-0 opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <span class="bg-brand-coral text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block shadow-lg">Branding</span>
-                    <h3 class="text-white text-2xl font-bold mb-2 drop-shadow-md">Identidad Visual Coherente</h3>
-                    <p class="text-white/95 text-sm font-medium leading-relaxed drop-shadow-md">Desarrollo de estética unificada para feed, logrando una presencia de marca sólida y profesional.</p>
+                    <h3 class="text-white text-xl font-bold drop-shadow-md">Identidad Visual</h3>
+                    <p class="text-white/80 text-xs">Click para ver detalles</p>
                 </div>
             </div>
 
-            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" onclick="openModal('COLABO/T2.jpeg')">
-                <img src="COLABO/T2.jpeg" alt="Engagement" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" 
+                 onclick="openModal('COLABO/T2.jpeg', 'Engagement', 'Infografías de Valor', 'Carruseles educativos diseñados para ser guardados y compartidos, potenciando el alcance orgánico.', 'bg-brand-teal')">
+                <img src="COLABO/T2.jpeg" alt="T2" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
                 <div class="overlay-work absolute inset-0 opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <span class="bg-brand-teal text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block shadow-lg">Engagement</span>
-                    <h3 class="text-white text-2xl font-bold mb-2 drop-shadow-md">Infografías de Valor</h3>
-                    <p class="text-white/95 text-sm font-medium leading-relaxed drop-shadow-md">Diseño de carruseles educativos creados para ser guardados y compartidos, aumentando el alcance orgánico.</p>
+                    <h3 class="text-white text-xl font-bold drop-shadow-md">Infografías</h3>
+                    <p class="text-white/80 text-xs">Click para ver detalles</p>
                 </div>
             </div>
 
-            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" onclick="openModal('COLABO/T3.jpeg')">
-                <img src="COLABO/T3.jpeg" alt="Ads" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" 
+                 onclick="openModal('COLABO/T3.jpeg', 'Ads Manager', 'Creativos para Performance', 'Piezas gráficas optimizadas para campañas de Meta Ads, enfocadas en captación de leads y ventas reales.', 'bg-brand-coral')">
+                <img src="COLABO/T3.jpeg" alt="T3" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
                 <div class="overlay-work absolute inset-0 opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <span class="bg-brand-coral text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block shadow-lg">Ads Manager</span>
-                    <h3 class="text-white text-2xl font-bold mb-2 drop-shadow-md">Creativos para Performance</h3>
-                    <p class="text-white/95 text-sm font-medium leading-relaxed drop-shadow-md">Piezas gráficas optimizadas para campañas de Meta Ads, enfocadas en captación de leads y ventas reales.</p>
+                    <h3 class="text-white text-xl font-bold drop-shadow-md">Performance Ads</h3>
+                    <p class="text-white/80 text-xs">Click para ver detalles</p>
                 </div>
             </div>
 
-            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" onclick="openModal('COLABO/T4.jpeg')">
-                <img src="COLABO/T4.jpeg" alt="Lifestyle" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" 
+                 onclick="openModal('COLABO/T4.jpeg', 'Lifestyle', 'Contenido Estilo de Vida', 'Dirección de arte para fotografía cotidiana que conecta emocionalmente con la audiencia real.', 'bg-brand-teal')">
+                <img src="COLABO/T4.jpeg" alt="T4" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
                 <div class="overlay-work absolute inset-0 opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <span class="bg-brand-teal text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block shadow-lg">Lifestyle</span>
-                    <h3 class="text-white text-2xl font-bold mb-2 drop-shadow-md">Contenido Estilo de Vida</h3>
-                    <p class="text-white/95 text-sm font-medium leading-relaxed drop-shadow-md">Dirección de arte para fotografía de contenido cotidiano que conecta emocionalmente con la audiencia.</p>
+                    <h3 class="text-white text-xl font-bold drop-shadow-md">Lifestyle</h3>
+                    <p class="text-white/80 text-xs">Click para ver detalles</p>
                 </div>
             </div>
 
-            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" onclick="openModal('COLABO/T5.jpeg')">
-                <img src="COLABO/T5.jpeg" alt="E-commerce" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" 
+                 onclick="openModal('COLABO/T5.jpeg', 'E-commerce', 'Visual de Producto', 'Presentación atractiva de productos destacando sus beneficios y diferenciales competitivos.', 'bg-brand-coral')">
+                <img src="COLABO/T5.jpeg" alt="T5" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
                 <div class="overlay-work absolute inset-0 opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <span class="bg-brand-coral text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block shadow-lg">E-commerce</span>
-                    <h3 class="text-white text-2xl font-bold mb-2 drop-shadow-md">Visual de Producto</h3>
-                    <p class="text-white/95 text-sm font-medium leading-relaxed drop-shadow-md">Presentación atractiva de productos destacando sus beneficios y diferenciales competitivos.</p>
+                    <h3 class="text-white text-xl font-bold drop-shadow-md">E-commerce</h3>
+                    <p class="text-white/80 text-xs">Click para ver detalles</p>
                 </div>
             </div>
 
-            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" onclick="openModal('COLABO/T6.jpeg')">
-                <img src="COLABO/T6.jpeg" alt="Live" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" 
+                 onclick="openModal('COLABO/T6.jpeg', 'Live Content', 'Cobertura de Lanzamientos', 'Gestión de contenido en tiempo real para eventos, transmitiendo la esencia de marca al instante.', 'bg-brand-teal')">
+                <img src="COLABO/T6.jpeg" alt="T6" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
                 <div class="overlay-work absolute inset-0 opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <span class="bg-brand-teal text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block shadow-lg">Live Content</span>
-                    <h3 class="text-white text-2xl font-bold mb-2 drop-shadow-md">Cobertura de Lanzamientos</h3>
-                    <p class="text-white/95 text-sm font-medium leading-relaxed drop-shadow-md">Gestión de contenido en tiempo real para eventos, transmitiendo la esencia de la marca al instante.</p>
+                    <h3 class="text-white text-xl font-bold drop-shadow-md">Eventos Live</h3>
+                    <p class="text-white/80 text-xs">Click para ver detalles</p>
                 </div>
             </div>
 
-        </div>
-
-        <div class="mt-20 text-center">
-            <a href="index.html" class="inline-flex items-center gap-3 px-10 py-5 bg-brand-dark text-white font-bold rounded-2xl hover:bg-gray-800 transition-all shadow-xl shadow-brand-dark/20 group">
-                <i class="fa-solid fa-house group-hover:-translate-x-1 transition-transform"></i>
-                Volver a la Página Principal
-            </a>
         </div>
     </main>
 
     <footer class="bg-brand-dark text-white py-12 text-center mt-12">
-        <p class="text-sm opacity-50">© 2024 Casi Agencia - Portafolio de Trabajos Profesionales</p>
+        <p class="text-sm opacity-50">© 2024 Casi Agencia - Portafolio Profesional</p>
     </footer>
 
     <script>
-        /**
-         * Logic: Control del visor de imágenes (Lightbox).
-         * Gestiona la apertura, cierre y previene el scroll del fondo.
-         */
-        function openModal(imgSrc) {
+        function openModal(imgSrc, tag, title, desc, tagColor) {
             const modal = document.getElementById('modal');
             const modalImg = document.getElementById('modal-img');
+            const modalTag = document.getElementById('modal-tag');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDesc = document.getElementById('modal-desc');
+
             modalImg.src = imgSrc;
+            modalTag.innerText = tag;
+            modalTag.className = `${tagColor} text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-4 inline-block w-fit`;
+            modalTitle.innerText = title;
+            modalDesc.innerText = desc;
+
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Lock body scroll
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             const modal = document.getElementById('modal');
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Unlock body scroll
+            document.body.style.overflow = 'auto';
         }
 
-        // Accessibility: Soporte para cerrar con la tecla Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeModal();
         });
