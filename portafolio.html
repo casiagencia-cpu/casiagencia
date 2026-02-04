@@ -6,11 +6,11 @@
     <title>Nuestros Trabajos - Casi Agencia</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
+        // Design System: Configuración de marca Casi Agencia
         tailwind.config = {
             theme: {
                 extend: {
@@ -37,7 +37,7 @@
         .card-work:hover img { transform: scale(1.1); }
         .overlay-work { background: linear-gradient(to top, rgba(31, 41, 55, 0.95) 0%, transparent 100%); }
         
-        /* Modal Style */
+        /* Animation: Transición suave para el visor de imágenes */
         #modal { display: none; }
         #modal.active { display: flex; animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -47,7 +47,7 @@
 
     <div id="modal" class="fixed inset-0 z-[100] bg-black/90 items-center justify-center p-4" onclick="closeModal()">
         <button class="absolute top-6 right-6 text-white text-4xl hover:text-brand-coral transition-colors">&times;</button>
-        <img id="modal-img" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl" alt="Vista previa">
+        <img id="modal-img" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl border-2 border-white/10" alt="Preview">
     </div>
 
     <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-brand-teal/20 shadow-sm">
@@ -73,52 +73,52 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" onclick="openModal('COLABO/T1.jpeg')">
-                <img src="COLABO/T1.jpeg" alt="Estrategia Visual" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+                <img src="COLABO/T1.jpeg" alt="Branding" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
                 <div class="overlay-work absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                    <span class="bg-brand-coral text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Creatividad</span>
-                    <h3 class="text-white text-xl font-bold mb-2">Composición de Campaña</h3>
-                    <p class="text-gray-300 text-sm">Optimización de artes visuales para maximizar el impacto en anuncios digitales.</p>
+                    <span class="bg-brand-coral text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Branding</span>
+                    <h3 class="text-white text-xl font-bold mb-2">Identidad Visual Coherente</h3>
+                    <p class="text-gray-300 text-sm">Desarrollo de estética unificada para feed, logrando una presencia de marca sólida y profesional.</p>
                 </div>
             </div>
 
             <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" onclick="openModal('COLABO/T2.jpeg')">
-                <img src="COLABO/T2.jpeg" alt="Identidad de Marca" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+                <img src="COLABO/T2.jpeg" alt="Engagement" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
                 <div class="overlay-work absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                    <span class="bg-brand-teal text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Branding</span>
-                    <h3 class="text-white text-xl font-bold mb-2">Manual de Estética</h3>
-                    <p class="text-gray-300 text-sm">Desarrollo de línea gráfica coherente para posicionamiento de marca premium.</p>
+                    <span class="bg-brand-teal text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Engagement</span>
+                    <h3 class="text-white text-xl font-bold mb-2">Infografías de Valor</h3>
+                    <p class="text-gray-300 text-sm">Carruseles educativos diseñados para ser guardados y compartidos, potenciando el alcance orgánico.</p>
                 </div>
             </div>
 
             <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" onclick="openModal('COLABO/T3.jpeg')">
-                <img src="COLABO/T3.jpeg" alt="Redes Sociales" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+                <img src="COLABO/T3.jpeg" alt="Ads" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
                 <div class="overlay-work absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                    <span class="bg-brand-coral text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Social Media</span>
-                    <h3 class="text-white text-xl font-bold mb-2">Planificación de Contenido</h3>
-                    <p class="text-gray-300 text-sm">Gestión de grilla mensual con enfoque en interacción y crecimiento orgánico.</p>
+                    <span class="bg-brand-coral text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Ads Manager</span>
+                    <h3 class="text-white text-xl font-bold mb-2">Creativos para Performance</h3>
+                    <p class="text-gray-300 text-sm">Piezas gráficas optimizadas para campañas de Meta Ads, enfocadas en captación de leads y ventas.</p>
                 </div>
             </div>
 
             <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" onclick="openModal('COLABO/T4.jpeg')">
-                <img src="COLABO/T4.jpeg" alt="Marketing" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+                <img src="COLABO/T4.jpeg" alt="Lifestyle" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
                 <div class="overlay-work absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                    <span class="bg-brand-teal text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Growth</span>
-                    <h3 class="text-white text-xl font-bold mb-2">Estrategia de Engagement</h3>
-                    <p class="text-gray-300 text-sm">Tácticas aplicadas para aumentar la conversión y fidelización de seguidores.</p>
+                    <span class="bg-brand-teal text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Lifestyle</span>
+                    <h3 class="text-white text-xl font-bold mb-2">Contenido de Estilo de Vida</h3>
+                    <p class="text-gray-300 text-sm">Dirección de arte para fotografía cotidiana que conecta emocionalmente con la audiencia real.</p>
                 </div>
             </div>
 
             <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" onclick="openModal('COLABO/T5.jpeg')">
-                <img src="COLABO/T5.jpeg" alt="Edición Fotográfica" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+                <img src="COLABO/T5.jpeg" alt="Producto" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
                 <div class="overlay-work absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                    <span class="bg-brand-coral text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Diseño</span>
-                    <h3 class="text-white text-xl font-bold mb-2">Retoque Creativo</h3>
-                    <p class="text-gray-300 text-sm">Edición avanzada de producto para catálogos y piezas publicitarias.</p>
+                    <span class="bg-brand-coral text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">E-commerce</span>
+                    <h3 class="text-white text-xl font-bold mb-2">Visual de Producto</h3>
+                    <p class="text-gray-300 text-sm">Presentación atractiva de productos destacando sus beneficios y diferenciales competitivos.</p>
                 </div>
             </div>
 
@@ -126,9 +126,9 @@
                 <img src="COLABO/T6.jpeg" alt="Lanzamiento" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
                 <div class="overlay-work absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                    <span class="bg-brand-teal text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Consultoría</span>
-                    <h3 class="text-white text-xl font-bold mb-2">Arquitectura de Marca</h3>
-                    <p class="text-gray-300 text-sm">Análisis de mercado y diseño de soluciones visuales disruptivas.</p>
+                    <span class="bg-brand-teal text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Live Content</span>
+                    <h3 class="text-white text-xl font-bold mb-2">Cobertura de Lanzamientos</h3>
+                    <p class="text-gray-300 text-sm">Gestión de contenido en tiempo real para eventos, transmitiendo la esencia de marca al instante.</p>
                 </div>
             </div>
 
@@ -143,26 +143,29 @@
     </main>
 
     <footer class="bg-brand-dark text-white py-12 text-center mt-12">
-        <p class="text-sm opacity-50">© 2024 Casi Agencia - Portafolio de Trabajos</p>
+        <p class="text-sm opacity-50">© 2024 Casi Agencia - Portafolio de Trabajos Profesionales</p>
     </footer>
 
     <script>
-        // Funciones del Visor (Modal)
+        /**
+         * Logic: Control del visor de imágenes (Modal Lightbox)
+         * Maneja la apertura, cierre y prevención de scroll del body.
+         */
         function openModal(imgSrc) {
             const modal = document.getElementById('modal');
             const modalImg = document.getElementById('modal-img');
             modalImg.src = imgSrc;
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Evita scroll al estar abierto
+            document.body.style.overflow = 'hidden'; // Lock scroll
         }
 
         function closeModal() {
             const modal = document.getElementById('modal');
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restaura scroll
+            document.body.style.overflow = 'auto'; // Unlock scroll
         }
 
-        // Cerrar con la tecla ESC
+        // Accesibilidad: Cerrar visor con la tecla Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeModal();
         });
