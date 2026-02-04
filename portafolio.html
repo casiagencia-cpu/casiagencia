@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Trabajos - Casi Agencia</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        script: ['Pacifico', 'cursive'],
+                    },
+                    colors: {
+                        brand: {
+                            coral: '#FF6F59',
+                            teal: '#26A69A',
+                            cream: '#FFFBF5',
+                            dark: '#1F2937'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .brand-gradient { background: linear-gradient(135deg, #FF6F59 0%, #26A69A 100%); }
+        .card-work:hover img { transform: scale(1.1); }
+        .overlay-work { background: linear-gradient(to top, rgba(31, 41, 55, 0.9) 0%, transparent 100%); }
+    </style>
+</head>
+<body class="bg-brand-cream text-gray-800 antialiased">
+
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-brand-teal/20 shadow-sm">
+        <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="leading-none">
+                    <span class="font-script text-2xl text-brand-coral block">Casi</span>
+                    <span class="font-bold text-xs tracking-widest text-brand-teal uppercase block">Agencia</span>
+                </div>
+            </a>
+            <a href="index.html" class="text-brand-dark hover:text-brand-coral font-semibold transition-colors">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Volver al Inicio
+            </a>
+        </div>
+    </nav>
+
+    <header class="py-16 px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-brand-dark mb-4">Portafolio de <span class="text-brand-coral">Proyectos</span></h1>
+        <p class="text-gray-600 max-w-2xl mx-auto italic">"No es casi un trabajo, es contenido que marca la diferencia."</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 pb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]">
+                <img src="COLABO/T1.jpeg" alt="Colaboración 1" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+                <div class="overlay-work absolute inset-0 opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                    <span class="bg-brand-coral text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Creatividad</span>
+                    <h3 class="text-white text-2xl font-bold mb-2">Proyecto Visual 01</h3>
+                    <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Diseño de impacto para campañas digitales.</p>
+                </div>
+            </div>
+
+            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]">
+                <img src="COLABO/T2.jpeg" alt="Colaboración 2" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+                <div class="overlay-work absolute inset-0 opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                    <span class="bg-brand-teal text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Branding</span>
+                    <h3 class="text-white text-2xl font-bold mb-2">Proyecto Visual 02</h3>
+                    <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Identidad de marca y estética profesional.</p>
+                </div>
+            </div>
+
+            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]">
+                <img src="COLABO/T3.jpeg" alt="Colaboración 3" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+                <div class="overlay-work absolute inset-0 opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                    <span class="bg-brand-coral text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Social Media</span>
+                    <h3 class="text-white text-2xl font-bold mb-2">Proyecto Visual 03</h3>
+                    <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Contenido estratégico para redes sociales.</p>
+                </div>
+            </div>
+
+            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]">
+                <img src="COLABO/T4.jpeg" alt="Colaboración 4" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+                <div class="overlay-work absolute inset-0 opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                    <span class="bg-brand-teal text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Marketing</span>
+                    <h3 class="text-white text-2xl font-bold mb-2">Proyecto Visual 04</h3>
+                    <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Potenciando el alcance de cada post.</p>
+                </div>
+            </div>
+
+            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]">
+                <img src="COLABO/T5.jpeg" alt="Colaboración 5" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+                <div class="overlay-work absolute inset-0 opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                    <span class="bg-brand-coral text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Contenido</span>
+                    <h3 class="text-white text-2xl font-bold mb-2">Proyecto Visual 05</h3>
+                    <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Fotografía y edición de alta calidad.</p>
+                </div>
+            </div>
+
+            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]">
+                <img src="COLABO/T6.jpeg" alt="Colaboración 6" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
+                <div class="overlay-work absolute inset-0 opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                    <span class="bg-brand-teal text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block">Diseño</span>
+                    <h3 class="text-white text-2xl font-bold mb-2">Proyecto Visual 06</h3>
+                    <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Estética moderna para marcas exigentes.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-20 text-center">
+            <a href="index.html" class="inline-flex items-center gap-3 px-10 py-5 bg-brand-dark text-white font-bold rounded-2xl hover:bg-gray-800 transition-all shadow-xl shadow-brand-dark/20 group">
+                <i class="fa-solid fa-house group-hover:-translate-x-1 transition-transform"></i>
+                Volver a la Página Principal
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-brand-dark text-white py-12 text-center mt-12">
+        <p class="text-sm opacity-50">© 2024 Casi Agencia - Portafolio de Trabajos</p>
+    </footer>
+
+</body>
+</html>
