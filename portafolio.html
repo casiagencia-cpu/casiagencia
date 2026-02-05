@@ -36,7 +36,6 @@
         .card-work:hover img { transform: scale(1.1); }
         .overlay-work { background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%); }
         
-        /* Estilos del Modal Dividido */
         #modal { display: none; }
         #modal.active { display: flex; animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -44,8 +43,8 @@
 </head>
 <body class="bg-brand-cream text-gray-800 antialiased">
 
-    <div id="modal" class="fixed inset-0 z-[100] bg-black/95 items-center justify-center p-4 lg:p-10">
-        <button class="absolute top-4 right-4 text-white text-4xl z-[110] hover:text-brand-coral transition-colors" onclick="closeModal()">&times;</button>
+    <div id="modal" class="fixed inset-0 z-[100] bg-black/95 items-center justify-center p-4 lg:p-10" onclick="closeModal()">
+        <button class="absolute top-4 right-4 text-white text-4xl z-[110] hover:text-brand-coral transition-colors">&times;</button>
         
         <div class="bg-white w-full max-w-5xl max-h-[90vh] rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl" onclick="event.stopPropagation()">
             <div class="w-full md:w-2/3 bg-gray-100 flex items-center justify-center overflow-hidden">
@@ -56,7 +55,7 @@
                 <span id="modal-tag" class="text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-4 inline-block w-fit">TAG</span>
                 <h3 id="modal-title" class="text-brand-dark text-3xl font-extrabold mb-4 leading-tight">Título del Proyecto</h3>
                 <div class="w-12 h-1 bg-brand-teal mb-6 rounded-full"></div>
-                <p id="modal-desc" class="text-gray-600 text-lg leading-relaxed">Descripción detallada del trabajo realizado.</p>
+                <p id="modal-desc" class="text-gray-600 text-lg leading-relaxed">Descripción detallada.</p>
                 
                 <div class="mt-10 p-4 bg-brand-cream rounded-2xl border border-brand-teal/10">
                     <p class="text-xs font-bold text-brand-teal uppercase tracking-widest flex items-center gap-2">
@@ -95,7 +94,7 @@
                 <div class="overlay-work absolute inset-0 opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                     <h3 class="text-white text-xl font-bold drop-shadow-md">Identidad Visual</h3>
-                    <p class="text-white/80 text-xs">Click para ver detalles</p>
+                    <p class="text-white/80 text-xs font-medium">Click para ver detalles</p>
                 </div>
             </div>
 
@@ -105,7 +104,7 @@
                 <div class="overlay-work absolute inset-0 opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                     <h3 class="text-white text-xl font-bold drop-shadow-md">Infografías</h3>
-                    <p class="text-white/80 text-xs">Click para ver detalles</p>
+                    <p class="text-white/80 text-xs font-medium">Click para ver detalles</p>
                 </div>
             </div>
 
@@ -115,37 +114,7 @@
                 <div class="overlay-work absolute inset-0 opacity-100 transition-opacity"></div>
                 <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                     <h3 class="text-white text-xl font-bold drop-shadow-md">Performance Ads</h3>
-                    <p class="text-white/80 text-xs">Click para ver detalles</p>
-                </div>
-            </div>
-
-            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" 
-                 onclick="openModal('COLABO/T4.jpeg', 'Lifestyle', 'Contenido Estilo de Vida', 'Dirección de arte para fotografía cotidiana que conecta emocionalmente con la audiencia real.', 'bg-brand-teal')">
-                <img src="COLABO/T4.jpeg" alt="T4" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
-                <div class="overlay-work absolute inset-0 opacity-100 transition-opacity"></div>
-                <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 class="text-white text-xl font-bold drop-shadow-md">Lifestyle</h3>
-                    <p class="text-white/80 text-xs">Click para ver detalles</p>
-                </div>
-            </div>
-
-            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" 
-                 onclick="openModal('COLABO/T5.jpeg', 'E-commerce', 'Visual de Producto', 'Presentación atractiva de productos destacando sus beneficios y diferenciales competitivos.', 'bg-brand-coral')">
-                <img src="COLABO/T5.jpeg" alt="T5" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
-                <div class="overlay-work absolute inset-0 opacity-100 transition-opacity"></div>
-                <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 class="text-white text-xl font-bold drop-shadow-md">E-commerce</h3>
-                    <p class="text-white/80 text-xs">Click para ver detalles</p>
-                </div>
-            </div>
-
-            <div class="card-work relative overflow-hidden rounded-3xl bg-white shadow-lg group aspect-[4/5]" 
-                 onclick="openModal('COLABO/T6.jpeg', 'Live Content', 'Cobertura de Lanzamientos', 'Gestión de contenido en tiempo real para eventos, transmitiendo la esencia de marca al instante.', 'bg-brand-teal')">
-                <img src="COLABO/T6.jpeg" alt="T6" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700">
-                <div class="overlay-work absolute inset-0 opacity-100 transition-opacity"></div>
-                <div class="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 class="text-white text-xl font-bold drop-shadow-md">Eventos Live</h3>
-                    <p class="text-white/80 text-xs">Click para ver detalles</p>
+                    <p class="text-white/80 text-xs font-medium">Click para ver detalles</p>
                 </div>
             </div>
 
