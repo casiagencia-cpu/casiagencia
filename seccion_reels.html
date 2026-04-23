@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casi Agencia - Reels</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        script: ['Pacifico', 'cursive'],
+                    },
+                    colors: {
+                        brand: {
+                            coral: '#FF6F59',
+                            teal: '#26A69A',
+                            cream: '#FFFBF5',
+                            dark: '#1F2937'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(255, 111, 89, 0.15);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(135deg, #FF6F59 0%, #26A69A 100%);
+        }
+    </style>
+</head>
+<body class="bg-brand-cream text-gray-800 antialiased">
+
+    <nav class="bg-white/90 backdrop-blur-md fixed w-full z-20 top-0 left-0 border-b border-brand-teal/20 shadow-sm">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="leading-none">
+                    <span class="font-script text-2xl text-brand-coral block">Casi</span>
+                    <span class="font-bold text-xs tracking-widest text-brand-teal uppercase block">Agencia</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="text-brand-dark hover:text-brand-coral font-bold transition-colors text-sm">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Volver al Inicio
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-12 px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl font-extrabold text-brand-dark mb-4">Nuestros <span class="text-gradient">Reels</span></h1>
+            <p class="text-gray-600">Impacto visual en formato vertical para redes sociales.</p>
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover transition-all border border-gray-100 flex flex-col">
+                <div class="aspect-[9/16] bg-black">
+                    <video class="w-full h-full object-cover" controls playsinline>
+                        <source src="REELS/EDICION DE REEL .mp4" type="video/mp4">
+                        Tu navegador no soporta video.
+                    </video>
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="font-bold text-brand-dark text-xl mb-3">Edición de Reel</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Haz clic para editar esta descripción y detallar el trabajo de edición realizado en este video.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover transition-all border border-gray-100 flex flex-col">
+                <div class="aspect-[9/16] bg-black">
+                    <video class="w-full h-full object-cover" controls playsinline>
+                        <source src="REELS/IA DESDE CERO.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="font-bold text-brand-dark text-xl mb-3">IA Desde Cero</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Haz clic para editar esta descripción y explicar de qué trata el proyecto de Inteligencia Artificial.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover transition-all border border-gray-100 flex flex-col">
+                <div class="aspect-[9/16] bg-black">
+                    <video class="w-full h-full object-cover" controls playsinline>
+                        <source src="REELS/IDEA + EDICION.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="font-bold text-brand-dark text-xl mb-3">Idea + Edición</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Haz clic para editar esta descripción y comentar el proceso creativo desde la idea hasta el montaje final.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-white py-10 text-center">
+        <p class="text-xs text-gray-500">© 2024 Casi Agencia. Hecho con ❤️ y código.</p>
+    </footer>
+
+</body>
+</html>
