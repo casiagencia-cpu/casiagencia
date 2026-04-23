@@ -41,6 +41,10 @@
             -webkit-text-fill-color: transparent;
             background-image: linear-gradient(135deg, #FF6F59 0%, #26A69A 100%);
         }
+        /* Oculta el botón de pantalla completa en algunos navegadores si fuera necesario */
+        video::-webkit-media-controls-fullscreen-button {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-brand-cream text-gray-800 antialiased">
@@ -73,7 +77,12 @@
             
             <div class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover transition-all border border-gray-100 flex flex-col">
                 <div class="aspect-[9/16] bg-black">
-                    <video class="w-full h-full object-cover" controls playsinline>
+                    <video class="w-full h-full object-cover" 
+                           controls 
+                           controlsList="nodownload noplaybackrate" 
+                           disablePictureInPicture 
+                           oncontextmenu="return false;" 
+                           playsinline>
                         <source src="REELS/EDICION DE REEL .mp4" type="video/mp4">
                         Tu navegador no soporta video.
                     </video>
@@ -88,7 +97,12 @@
 
             <div class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover transition-all border border-gray-100 flex flex-col">
                 <div class="aspect-[9/16] bg-black">
-                    <video class="w-full h-full object-cover" controls playsinline>
+                    <video class="w-full h-full object-cover" 
+                           controls 
+                           controlsList="nodownload noplaybackrate" 
+                           disablePictureInPicture 
+                           oncontextmenu="return false;" 
+                           playsinline>
                         <source src="REELS/IA DESDE CERO.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -102,7 +116,12 @@
 
             <div class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover transition-all border border-gray-100 flex flex-col">
                 <div class="aspect-[9/16] bg-black">
-                    <video class="w-full h-full object-cover" controls playsinline>
+                    <video class="w-full h-full object-cover" 
+                           controls 
+                           controlsList="nodownload noplaybackrate" 
+                           disablePictureInPicture 
+                           oncontextmenu="return false;" 
+                           playsinline>
                         <source src="REELS/IDEA + EDICION.mp4" type="video/mp4">
                     </video>
                 </div>
