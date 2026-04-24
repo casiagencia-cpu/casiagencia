@@ -13,41 +13,43 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        script: ['Pacifico', 'cursive'],
-                    },
-                    colors: {
-                        brand: {
-                            coral: '#FF6F59',
-                            teal: '#26A69A',
-                            cream: '#FFFBF5',
-                            dark: '#1F2937'
-                        }
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'], script: ['Pacifico', 'cursive'] },
+                    colors: { brand: { coral: '#FF6F59', teal: '#26A69A', cream: '#FFFBF5', dark: '#1F2937' } }
                 }
             }
         }
     </script>
     
     <style>
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(255, 111, 89, 0.15);
-        }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(255, 111, 89, 0.15); }
         .text-gradient {
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             background-image: linear-gradient(135deg, #FF6F59 0%, #26A69A 100%);
         }
-        /* Oculta el botón de pantalla completa en algunos navegadores si fuera necesario */
-        video::-webkit-media-controls-fullscreen-button {
+
+        /* Ocultar scroll cuando el modal está abierto */
+        body.modal-open { overflow: hidden; }
+
+        /* Estilos del Modal */
+        #videoModal {
             display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
+
+        /* Fuerza bruta para el video dentro del modal */
+        #modalVideo::-internal-media-controls-download-button { display:none !important; }
+        #modalVideo::-webkit-media-controls-enclosure { overflow:hidden !important; }
+        #modalVideo::-webkit-media-controls-panel { width: calc(100% + 35px) !important; }
     </style>
 </head>
-<body class="bg-brand-cream text-gray-800 antialiased">
+<body class="bg-brand-cream text-gray-800 antialiased" oncontextmenu="return false;">
 
     <nav class="bg-white/90 backdrop-blur-md fixed w-full z-20 top-0 left-0 border-b border-brand-teal/20 shadow-sm">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -57,88 +59,122 @@
                     <span class="font-bold text-xs tracking-widest text-brand-teal uppercase block">Agencia</span>
                 </div>
             </a>
-            <div class="flex items-center gap-4">
-                <a href="index.html" class="text-brand-dark hover:text-brand-coral font-bold transition-colors text-sm">
-                    <i class="fa-solid fa-arrow-left mr-1"></i> Volver al Inicio
-                </a>
-            </div>
+            <a href="index.html" class="text-brand-dark hover:text-brand-coral font-bold transition-colors text-sm">
+                <i class="fa-solid fa-arrow-left mr-1"></i> Volver al Inicio
+            </a>
         </div>
     </nav>
 
     <section class="pt-32 pb-12 px-4 text-center">
-        <div class="max-w-3xl mx-auto">
-            <h1 class="text-4xl font-extrabold text-brand-dark mb-4">Nuestros <span class="text-gradient">Reels</span></h1>
-            <p class="text-gray-600">Impacto visual en formato vertical para redes sociales.</p>
-        </div>
+        <h1 class="text-4xl font-extrabold text-brand-dark mb-4 uppercase">Servicios <span class="text-gradient">Casi Agencia</span></h1>
+        <p class="text-gray-600">Haz clic en cada tarjeta para ver detalles y el video.</p>
     </section>
 
     <section class="max-w-6xl mx-auto px-4 pb-24">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <div class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover transition-all border border-gray-100 flex flex-col">
-                <div class="aspect-[9/16] bg-black">
-                    <video class="w-full h-full object-cover" 
-                           controls 
-                           controlsList="nodownload noplaybackrate" 
-                           disablePictureInPicture 
-                           oncontextmenu="return false;" 
-                           playsinline>
+            <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm card-hover border border-gray-100 cursor-pointer group" 
+                 onclick="openModal('REELS/EDICION DE REEL .mp4', 'EDICIÓN DE REELS', 'Transformamos tus videos en contenido listo para publicar. Si ya grabás pero no tenés tiempo o no sabés cómo editar, nos encargamos de todo el proceso para que tus reels se vean profesionales, dinámicos y atractivos.<br><br>✓ Edición con ritmo actual<br>✓ Subtítulos y música incluidos<br>✓ Adaptado a tu estilo y marca')">
+                <div class="aspect-[9/16] bg-gray-200 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-brand-dark/40 group-hover:bg-brand-dark/20 transition-colors z-10 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-brand-coral rounded-full flex items-center justify-center text-white shadow-lg transform group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play fa-xl ml-1"></i>
+                        </div>
+                    </div>
+                    <video class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all" muted loop autoplay playsinline>
                         <source src="REELS/EDICION DE REEL .mp4" type="video/mp4">
-                        Tu navegador no soporta video.
                     </video>
                 </div>
-                <div class="p-6 flex-grow">
-                    <h3 class="font-bold text-brand-dark text-xl mb-3">Edición de Reel</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Haz clic para editar esta descripción y detallar el trabajo de edición realizado en este video.
-                    </p>
+                <div class="p-6 text-center">
+                    <h3 class="font-bold text-brand-dark text-lg uppercase tracking-wider">Edición de Reels</h3>
+                    <span class="text-brand-coral text-xs font-bold mt-2 inline-block">VER MÁS INFO</span>
                 </div>
             </div>
 
-            <div class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover transition-all border border-gray-100 flex flex-col">
-                <div class="aspect-[9/16] bg-black">
-                    <video class="w-full h-full object-cover" 
-                           controls 
-                           controlsList="nodownload noplaybackrate" 
-                           disablePictureInPicture 
-                           oncontextmenu="return false;" 
-                           playsinline>
+            <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm card-hover border border-gray-100 cursor-pointer group" 
+                 onclick="openModal('REELS/IA DESDE CERO.mp4', 'CONTENIDO CON IA', 'Creamos tus reels desde cero utilizando inteligencia artificial, ideal si no querés aparecer en cámara o buscás una estética innovadora.<br><br>✓ Idea + guión completo<br>✓ Imágenes y videos con IA<br>✓ Edición profesional')">
+                <div class="aspect-[9/16] bg-gray-200 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-brand-dark/40 group-hover:bg-brand-dark/20 transition-colors z-10 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-brand-coral rounded-full flex items-center justify-center text-white shadow-lg transform group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play fa-xl ml-1"></i>
+                        </div>
+                    </div>
+                    <video class="w-full h-full object-cover grayscale-[30%]" muted loop autoplay playsinline>
                         <source src="REELS/IA DESDE CERO.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="p-6 flex-grow">
-                    <h3 class="font-bold text-brand-dark text-xl mb-3">IA Desde Cero</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Haz clic para editar esta descripción y explicar de qué trata el proyecto de Inteligencia Artificial.
-                    </p>
+                <div class="p-6 text-center">
+                    <h3 class="font-bold text-brand-dark text-lg uppercase tracking-wider">Contenido con IA</h3>
+                    <span class="text-brand-coral text-xs font-bold mt-2 inline-block">VER MÁS INFO</span>
                 </div>
             </div>
 
-            <div class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover transition-all border border-gray-100 flex flex-col">
-                <div class="aspect-[9/16] bg-black">
-                    <video class="w-full h-full object-cover" 
-                           controls 
-                           controlsList="nodownload noplaybackrate" 
-                           disablePictureInPicture 
-                           oncontextmenu="return false;" 
-                           playsinline>
+            <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm card-hover border border-gray-100 cursor-pointer group" 
+                 onclick="openModal('REELS/IDEA + EDICION.mp4', 'IDEA + EDICIÓN', 'Nos ocupamos de pensar y crear tu contenido. Te damos ideas estratégicas y guiones simples para que solo tengas que grabar.<br><br>✓ Ideas alineadas a tu negocio<br>✓ Guión listo para grabar<br>✓ Edición profesional')">
+                <div class="aspect-[9/16] bg-gray-200 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-brand-dark/40 group-hover:bg-brand-dark/20 transition-colors z-10 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-brand-coral rounded-full flex items-center justify-center text-white shadow-lg transform group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play fa-xl ml-1"></i>
+                        </div>
+                    </div>
+                    <video class="w-full h-full object-cover grayscale-[30%]" muted loop autoplay playsinline>
                         <source src="REELS/IDEA + EDICION.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="p-6 flex-grow">
-                    <h3 class="font-bold text-brand-dark text-xl mb-3">Idea + Edición</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Haz clic para editar esta descripción y comentar el proceso creativo desde la idea hasta el montaje final.
-                    </p>
+                <div class="p-6 text-center">
+                    <h3 class="font-bold text-brand-dark text-lg uppercase tracking-wider">Idea + Edición</h3>
+                    <span class="text-brand-coral text-xs font-bold mt-2 inline-block">VER MÁS INFO</span>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <footer class="bg-brand-dark text-white py-10 text-center">
-        <p class="text-xs text-gray-500">© 2024 Casi Agencia. Hecho con ❤️ y código.</p>
-    </footer>
+    <div id="videoModal" onclick="closeModal(event)">
+        <div class="bg-white w-full max-w-4xl rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col md:flex-row relative" onclick="event.stopPropagation()">
+            <button onclick="closeModal(event)" class="absolute top-4 right-6 text-gray-400 hover:text-brand-coral z-50 text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
 
+            <div class="w-full md:w-1/2 bg-black aspect-[9/16] md:aspect-auto">
+                <video id="modalVideo" class="w-full h-full object-cover" controls disablePictureInPicture controlsList="nodownload" playsinline>
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                <h2 id="modalTitle" class="text-3xl font-extrabold text-brand-dark mb-6 uppercase tracking-tighter"></h2>
+                <div id="modalDescription" class="text-gray-600 leading-relaxed text-sm space-y-4"></div>
+                
+                <a href="https://wa.me/5491150042349" target="_blank" class="mt-8 inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-coral text-white font-bold rounded-xl hover:bg-red-500 transition-all">
+                    <i class="fa-brands fa-whatsapp"></i> Consultar por este servicio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('videoModal');
+        const video = document.getElementById('modalVideo');
+        const title = document.getElementById('modalTitle');
+        const description = document.getElementById('modalDescription');
+
+        function openModal(videoSrc, videoTitle, videoDesc) {
+            video.src = videoSrc;
+            title.innerText = videoTitle;
+            description.innerHTML = videoDesc;
+            
+            modal.style.display = 'flex';
+            document.body.classList.add('modal-open');
+            video.play();
+        }
+
+        function closeModal(e) {
+            modal.style.display = 'none';
+            document.body.classList.remove('modal-open');
+            video.pause();
+            video.src = "";
+        }
+    </script>
 </body>
 </html>
